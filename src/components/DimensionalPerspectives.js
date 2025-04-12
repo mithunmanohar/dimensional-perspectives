@@ -427,20 +427,20 @@ const DimensionalPerspectives = () => {
     <div className="dimensional-perspectives-container flex flex-col p-4 bg-white">
       <h1 className="text-2xl font-bold text-center mb-2">Dimensional Perspectives: Visualizing a 3D Object from a 2D World</h1>
       
-      <p className="text-center mb-2" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <p className="text-center mb-2">
         This visualization shows how a 2D creature would perceive a 3D object intersecting its 2D world. A cross-section is the 2D 
         shape formed where a 3D object intersects a flat plane, like slicing a loaf of bread to see a flat slice. While the 3D 
         object passes through the plane, the creature only sees a 2D cross-section at each moment in time.
       </p>
       
-      <p className="text-center mb-4 text-sm text-gray-600 italic" style={{ maxWidth: "1000px", margin: "0 auto" }}>
+      <p className="text-center mb-4 text-sm text-gray-600 italic">
         To understand this visualization, imagine you are a 2D being living in a flat plane (the XY plane). 
         You can only move left/right and forward/backward, but not up/down. Your entire universe is flat like a sheet of paper.
       </p>
       
       {/* Shape selector buttons */}
       <div className="flex flex-col justify-center items-center gap-2 mb-6">
-        <div className="flex justify-center gap-2 mb-4" style={{ flexWrap: "wrap", maxWidth: "500px" }}>
+        <div className="flex flex-wrap justify-center gap-2 mb-4">
           <button 
             onClick={() => handleShapeChange('sphere')}
             className={`px-4 py-2 rounded-full ${shape === 'sphere' ? 
@@ -473,7 +473,7 @@ const DimensionalPerspectives = () => {
         
         {/* Position slider and animation control */}
         <div className="flex flex-col items-center gap-2 w-full max-w-xl mb-4">
-          <p className="text-sm text-gray-600 text-center" style={{ maxWidth: "700px", margin: "0 auto" }}>
+          <p className="text-sm text-gray-600 text-center">
             The position slider controls the height of the 3D object relative to the 2D plane. 
             When position = 0.5, the object is centered on the plane.
           </p>
