@@ -1,6 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const DimensionalPerspectives = () => {
+  // Set page title
+  React.useEffect(() => {
+    document.title = "Dimensional Perspectives";
+    return () => {
+      document.title = "React App"; // Reset title on unmount
+    };
+  }, []);
+
   // Add global styles with very strong specificity
   React.useEffect(() => {
     const style = document.createElement('style');
@@ -420,7 +428,8 @@ const DimensionalPerspectives = () => {
       <h1 className="text-2xl font-bold text-center mb-2">Dimensional Perspectives: Visualizing a 3D Object from a 2D World</h1>
       
       <p className="text-center mb-2">
-        This visualization shows how a 2D creature would perceive a 3D object intersecting its 2D world. While the 3D 
+        This visualization shows how a 2D creature would perceive a 3D object intersecting its 2D world. A cross-section is the 2D 
+        shape formed where a 3D object intersects a flat plane, like slicing a loaf of bread to see a flat slice. While the 3D 
         object passes through the plane, the creature only sees a 2D cross-section at each moment in time.
       </p>
       
@@ -437,28 +446,28 @@ const DimensionalPerspectives = () => {
             className={`px-4 py-2 rounded-full ${shape === 'sphere' ? 
               'bg-black text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
           >
-            Sphere
+            3D Sphere
           </button>
           <button 
             onClick={() => handleShapeChange('cube')}
             className={`px-4 py-2 rounded-full ${shape === 'cube' ? 
               'bg-black text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
           >
-            Cube
+            3D Cube
           </button>
           <button 
             onClick={() => handleShapeChange('cone')}
             className={`px-4 py-2 rounded-full ${shape === 'cone' ? 
               'bg-black text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
           >
-            Cone
+            3D Cone
           </button>
           <button 
             onClick={() => handleShapeChange('torus')}
             className={`px-4 py-2 rounded-full ${shape === 'torus' ? 
               'bg-black text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
           >
-            Torus
+            3D Torus
           </button>
         </div>
         
@@ -545,7 +554,8 @@ const DimensionalPerspectives = () => {
           {renderPlanView()}
           <div className="mt-3 text-xs text-gray-600">
             <p><strong>How to understand:</strong> This view shows what we as 3D beings can see - the entire 3D object 
-            and how it intersects with the 2D world (red dashed line).</p>
+            and how it intersects with the 2D world (red dashed line). Note that these examples use simplified orientations 
+            for clarity, but real-world intersections could be more complex.</p>
           </div>
         </div>
         
@@ -572,7 +582,8 @@ const DimensionalPerspectives = () => {
           {renderTopDownView()}
           <div className="mt-3 text-xs text-gray-600">
             <p><strong>How to understand:</strong> This view shows the object's position on the Z-axis (height), which 
-            is invisible to 2D creatures.</p>
+            is invisible to 2D creatures. Just as 2D creatures struggle to imagine 'up' and 'down,' we struggle to 
+            imagine a fourth direction perpendicular to all three of our dimensions.</p>
           </div>
         </div>
         
@@ -599,7 +610,8 @@ const DimensionalPerspectives = () => {
           {renderCreatureView()}
           <div className="mt-3 text-xs text-gray-600">
             <p><strong>How to understand:</strong> This is what a 2D creature actually sees - just a flat slice of the 
-            3D object as it passes through their plane.</p>
+            3D object as it passes through their plane. As the 3D object moves, the creature sees these shapes change 
+            smoothly, like a movie of growing and shrinking forms.</p>
           </div>
         </div>
       </div>
