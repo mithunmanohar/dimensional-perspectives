@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dimensional-perspectives/static/css/main.f855e6bc.css",
-    "main.js": "/dimensional-perspectives/static/js/main.424e3c5c.js",
+    "main.js": "/dimensional-perspectives/static/js/main.fa38e4df.js",
     "static/js/453.75014297.chunk.js": "/dimensional-perspectives/static/js/453.75014297.chunk.js",
     "index.html": "/dimensional-perspectives/index.html",
     "main.f855e6bc.css.map": "/dimensional-perspectives/static/css/main.f855e6bc.css.map",
-    "main.424e3c5c.js.map": "/dimensional-perspectives/static/js/main.424e3c5c.js.map",
+    "main.fa38e4df.js.map": "/dimensional-perspectives/static/js/main.fa38e4df.js.map",
     "453.75014297.chunk.js.map": "/dimensional-perspectives/static/js/453.75014297.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.424e3c5c.js"
+    "static/js/main.fa38e4df.js"
   ]
 }
