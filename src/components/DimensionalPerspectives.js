@@ -1,44 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const DimensionalPerspectives = () => {
-  // Add global styles with very strong specificity
-  React.useEffect(() => {
-    const style = document.createElement('style');
-    style.textContent = `
-      /* Force horizontal layout always */
-      html body .dimensional-perspectives-container .panel-container {
-        display: flex !important;
-        flex-direction: row !important;
-        overflow-x: auto !important;
-        width: 100% !important;
-        flex-wrap: nowrap !important;
-        gap: 1rem !important;
-        padding-bottom: 16px !important;
-      }
-      
-      html body .dimensional-perspectives-container .panel {
-        flex: 1 0 auto !important; 
-        min-width: 300px !important;
-        width: 300px !important;
-        max-width: 33% !important;
-        flex-shrink: 0 !important;
-      }
-      
-      /* Make sure the panels are side by side on all screens */
-      @media screen {
-        html body .dimensional-perspectives-container .panel-container {
-          flex-direction: row !important;
-          display: flex !important;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-    
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
-  
   const [shape, setShape] = useState('sphere');
   const [position, setPosition] = useState(0.5);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -416,7 +378,7 @@ const DimensionalPerspectives = () => {
   };
 
   return (
-    <div className="dimensional-perspectives-container flex flex-col p-4 bg-white">
+    <div className="flex flex-col p-4 bg-white">
       <h1 className="text-2xl font-bold text-center mb-2">Dimensional Perspectives: Visualizing a 3D Object from a 2D World</h1>
       
       <p className="text-center mb-2">
@@ -473,7 +435,7 @@ const DimensionalPerspectives = () => {
             <button
               onClick={toggleAnimation}
               className={`px-4 py-2 rounded-md flex items-center justify-center gap-1 ${isAnimating ? 
-                'bg-blue-600 text-white hover:bg-blue-700' : 'bg-blue-100 hover:bg-blue-200 border border-blue-300'}`}
+                'bg-blue-600 text-white' : 'bg-blue-100 border border-blue-300'}`}
             >
               {isAnimating ? (
                 <>
@@ -510,34 +472,10 @@ const DimensionalPerspectives = () => {
         </div>
       </div>
       
-      {/* Visualization panels - force fixed layout with inline styles to ensure all three panels show properly on GitHub Pages */}
-      <div 
-        className="panel-container" 
-        style={{ 
-          display: 'flex', 
-          flexDirection: 'row', 
-          flexWrap: 'nowrap', 
-          gap: '1rem', 
-          overflowX: 'auto',
-          width: '100%'
-        }}
-      >
+      {/* Visualization panels */}
+      <div className="flex flex-row overflow-x-auto w-full gap-4 mb-4">
         {/* Panel 1: 3D World Perspective */}
-        <div 
-          className="panel" 
-          style={{ 
-            flex: '1 0 auto', 
-            minWidth: '300px', 
-            width: '300px', 
-            maxWidth: '33%', 
-            border: '1px solid #e5e7eb', 
-            borderRadius: '0.5rem', 
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', 
-            padding: '1rem', 
-            backgroundColor: 'white',
-            flexShrink: 0
-          }}
-        >
+        <div className="flex-1 min-w-64 border border-gray-200 rounded-lg shadow-md p-4 bg-white">
           <h2 className="text-lg font-semibold mb-2 text-center">1. 3D World Perspective</h2>
           <p className="text-sm mb-2 text-gray-600">
             3D object passing through a 2D plane (red dashed line)
@@ -550,21 +488,7 @@ const DimensionalPerspectives = () => {
         </div>
         
         {/* Panel 2: Top-Down View */}
-        <div 
-          className="panel" 
-          style={{ 
-            flex: '1 0 auto', 
-            minWidth: '300px', 
-            width: '300px', 
-            maxWidth: '33%', 
-            border: '1px solid #e5e7eb', 
-            borderRadius: '0.5rem', 
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', 
-            padding: '1rem', 
-            backgroundColor: 'white',
-            flexShrink: 0
-          }}
-        >
+        <div className="flex-1 min-w-64 border border-gray-200 rounded-lg shadow-md p-4 bg-white">
           <h2 className="text-lg font-semibold mb-2 text-center">2. Top-Down View</h2>
           <p className="text-sm mb-2 text-gray-600">
             Vertical movement along Z-axis
@@ -577,21 +501,7 @@ const DimensionalPerspectives = () => {
         </div>
         
         {/* Panel 3: 2D Creature's View */}
-        <div 
-          className="panel" 
-          style={{ 
-            flex: '1 0 auto', 
-            minWidth: '300px', 
-            width: '300px', 
-            maxWidth: '33%', 
-            border: '1px solid #e5e7eb', 
-            borderRadius: '0.5rem', 
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', 
-            padding: '1rem', 
-            backgroundColor: 'white',
-            flexShrink: 0
-          }}
-        >
+        <div className="flex-1 min-w-64 border border-gray-200 rounded-lg shadow-md p-4 bg-white">
           <h2 className="text-lg font-semibold mb-2 text-center">3. 2D Creature's View</h2>
           <p className="text-sm mb-2 text-gray-600">
             Cross-section at intersection point
