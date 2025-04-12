@@ -1,39 +1,35 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const DimensionalPerspectives = () => {
-  // Add global styles for the container with stronger specificity
+  // Add global styles with very strong specificity
   React.useEffect(() => {
-    // Add a style tag to enforce horizontal layout on mobile with higher specificity
     const style = document.createElement('style');
     style.textContent = `
-      @media (max-width: 768px) {
-        /* Use high specificity selectors */
-        body .dimensional-perspectives-container .panel-container {
-          display: flex !important;
-          flex-direction: row !important;
-          overflow-x: auto !important;
-          width: 100% !important;
-          padding-bottom: 16px !important;
-          flex-wrap: nowrap !important;
-        }
-        body .dimensional-perspectives-container .panel {
-          min-width: 300px !important;
-          flex-shrink: 0 !important;
-          width: auto !important;
-        }
-      }
-      
-      /* Force horizontal layout regardless of screen size for GitHub Pages */
-      .dimensional-perspectives-container .panel-container {
+      /* Force horizontal layout always */
+      html body .dimensional-perspectives-container .panel-container {
         display: flex !important;
         flex-direction: row !important;
         overflow-x: auto !important;
+        width: 100% !important;
         flex-wrap: nowrap !important;
+        gap: 1rem !important;
+        padding-bottom: 16px !important;
       }
       
-      .dimensional-perspectives-container .panel {
+      html body .dimensional-perspectives-container .panel {
+        flex: 1 0 auto !important; 
         min-width: 300px !important;
+        width: 300px !important;
+        max-width: 33% !important;
         flex-shrink: 0 !important;
+      }
+      
+      /* Make sure the panels are side by side on all screens */
+      @media screen {
+        html body .dimensional-perspectives-container .panel-container {
+          flex-direction: row !important;
+          display: flex !important;
+        }
       }
     `;
     document.head.appendChild(style);
@@ -155,7 +151,6 @@ const DimensionalPerspectives = () => {
   
   // Render the 3D world perspective (Panel 1)
   const renderPlanView = () => {
-    // Your existing render code for Panel 1
     return (
       <svg width="100%" height="300" viewBox="0 0 300 300">
         {/* Background */}
@@ -250,7 +245,6 @@ const DimensionalPerspectives = () => {
   
   // Render the top-down view (Panel 2)
   const renderTopDownView = () => {
-    // Your existing render code for Panel 2
     return (
       <svg width="100%" height="300" viewBox="0 0 300 300">
         {/* Background */}
@@ -422,7 +416,6 @@ const DimensionalPerspectives = () => {
   };
 
   return (
-    // Add the specific class name for CSS specificity
     <div className="dimensional-perspectives-container flex flex-col p-4 bg-white">
       <h1 className="text-2xl font-bold text-center mb-2">Dimensional Perspectives: Visualizing a 3D Object from a 2D World</h1>
       
@@ -517,17 +510,34 @@ const DimensionalPerspectives = () => {
         </div>
       </div>
       
-      {/* Visualization panels with stronger style attributes */}
+      {/* Visualization panels - force fixed layout with inline styles to ensure all three panels show properly on GitHub Pages */}
       <div 
-        className="panel-container flex flex-row gap-4 overflow-x-auto" 
+        className="panel-container" 
         style={{ 
-          flexWrap: 'nowrap', 
           display: 'flex', 
-          flexDirection: 'row'
+          flexDirection: 'row', 
+          flexWrap: 'nowrap', 
+          gap: '1rem', 
+          overflowX: 'auto',
+          width: '100%'
         }}
       >
         {/* Panel 1: 3D World Perspective */}
-        <div className="panel flex-1 min-w-64 border rounded-lg shadow-md p-4 bg-white" style={{ flexShrink: 0, minWidth: '300px' }}>
+        <div 
+          className="panel" 
+          style={{ 
+            flex: '1 0 auto', 
+            minWidth: '300px', 
+            width: '300px', 
+            maxWidth: '33%', 
+            border: '1px solid #e5e7eb', 
+            borderRadius: '0.5rem', 
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', 
+            padding: '1rem', 
+            backgroundColor: 'white',
+            flexShrink: 0
+          }}
+        >
           <h2 className="text-lg font-semibold mb-2 text-center">1. 3D World Perspective</h2>
           <p className="text-sm mb-2 text-gray-600">
             3D object passing through a 2D plane (red dashed line)
@@ -540,7 +550,21 @@ const DimensionalPerspectives = () => {
         </div>
         
         {/* Panel 2: Top-Down View */}
-        <div className="panel flex-1 min-w-64 border rounded-lg shadow-md p-4 bg-white" style={{ flexShrink: 0, minWidth: '300px' }}>
+        <div 
+          className="panel" 
+          style={{ 
+            flex: '1 0 auto', 
+            minWidth: '300px', 
+            width: '300px', 
+            maxWidth: '33%', 
+            border: '1px solid #e5e7eb', 
+            borderRadius: '0.5rem', 
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', 
+            padding: '1rem', 
+            backgroundColor: 'white',
+            flexShrink: 0
+          }}
+        >
           <h2 className="text-lg font-semibold mb-2 text-center">2. Top-Down View</h2>
           <p className="text-sm mb-2 text-gray-600">
             Vertical movement along Z-axis
@@ -553,7 +577,21 @@ const DimensionalPerspectives = () => {
         </div>
         
         {/* Panel 3: 2D Creature's View */}
-        <div className="panel flex-1 min-w-64 border rounded-lg shadow-md p-4 bg-white" style={{ flexShrink: 0, minWidth: '300px' }}>
+        <div 
+          className="panel" 
+          style={{ 
+            flex: '1 0 auto', 
+            minWidth: '300px', 
+            width: '300px', 
+            maxWidth: '33%', 
+            border: '1px solid #e5e7eb', 
+            borderRadius: '0.5rem', 
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', 
+            padding: '1rem', 
+            backgroundColor: 'white',
+            flexShrink: 0
+          }}
+        >
           <h2 className="text-lg font-semibold mb-2 text-center">3. 2D Creature's View</h2>
           <p className="text-sm mb-2 text-gray-600">
             Cross-section at intersection point
