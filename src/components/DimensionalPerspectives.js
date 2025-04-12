@@ -645,6 +645,18 @@ const DimensionalPerspectives = () => {
           </div>
         </div>
       </div>
+      
+      {/* Source code link - Added as requested */}
+      <div className="mt-6 text-center">
+        <a 
+          href="https://github.com/mithunmanohar/dimensional-perspectives"
+          className="text-blue-600 hover:text-blue-800 underline font-medium"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Source Code on GitHub
+        </a>
+      </div>
     </div>
   );
 };
