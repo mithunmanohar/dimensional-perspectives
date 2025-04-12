@@ -545,7 +545,7 @@ const DimensionalPerspectives = () => {
           </p>
           {renderPlanView()}
           <div className="mt-3 text-xs text-gray-600">
-            <p><strong>How to understand:</strong> This view shows what we as 3D beings can see - the entire 3D object 
+            <p><strong>Explanation:</strong> This view shows what we as 3D beings can see - the entire 3D object 
             and how it intersects with the 2D world (red dashed line). Note that these examples use simplified orientations 
             for clarity, but real-world intersections could be more complex.</p>
           </div>
@@ -573,7 +573,7 @@ const DimensionalPerspectives = () => {
           </p>
           {renderTopDownView()}
           <div className="mt-3 text-xs text-gray-600">
-            <p><strong>How to understand:</strong> This view shows the object's position on the Z-axis (height), which 
+            <p><strong>Explanation:</strong> This view shows the object's position on the Z-axis (height), which 
             is invisible to 2D creatures. Just as 2D creatures struggle to imagine 'up' and 'down,' we struggle to 
             imagine a fourth direction perpendicular to all three of our dimensions.</p>
           </div>
@@ -601,7 +601,7 @@ const DimensionalPerspectives = () => {
           </p>
           {renderCreatureView()}
           <div className="mt-3 text-xs text-gray-600">
-            <p><strong>How to understand:</strong> This is what a 2D creature actually sees - just a flat slice of the 
+            <p><strong>Explanation:</strong> This is what a 2D creature actually sees - just a flat slice of the 
             3D object as it passes through their plane. As the 3D object moves, the creature sees these shapes change 
             smoothly, like a movie of growing and shrinking forms.</p>
           </div>
